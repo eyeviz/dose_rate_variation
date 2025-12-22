@@ -1,4 +1,4 @@
-https://github.com/eyeviz/drv
+https://github.com/eyeviz/drvo
 
 This repository contains program packages for the work entitled
 
@@ -25,6 +25,7 @@ land use types, and terrain surface curvatures.
 
 See mapview/README.md for more details
 
+![System snapshot for analyzing Fukushima City and Date City](images/system_view_for_date.png)
 
 ??????/
 
