@@ -62,7 +62,3 @@ file, it transforms the data into binary format and wrote
 the binary file. Next time, the program directly load the
 binary data file and thus you can accelerate the
 initialization.
-
-
-![System snapshot for analyzing Fukushima City and Date City](images/system_view_for_date.png)
-
