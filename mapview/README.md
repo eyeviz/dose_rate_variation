@@ -4,14 +4,19 @@ Linux OS through minor revision fo the Makefile.
 
 The program package uses OpenCV, Eigen3, FTGL libraries.
 You can install these packages with HomeBrew as
+
 > brew install opencv
+
 > brew install eigen
+
 > brew install ftgl
 
 Overall, you can compile the program as follows:
 
 > make depend
+
 > make
+
 > ./mapview
 
 Download data files from:
@@ -23,12 +28,16 @@ JAEA_date_integrated_map_050.zip from https://www.dropbox.com/scl/fi/5meiuxtimuv
 JAEA_nogami_integrated_map_040.zip from https://www.dropbox.com/scl/fi/726br5bu4wvlkprg17y7l/JAEA_nogami_integrated_map_040.zip?rlkey=892w2s3oz8i84w45czw3ucoag&dl=0
 
 Unpack the data files
+
 > unzip JAEA_niida_integrated_map_040.zip
+
 > unzip JAEA_date_integrated_map_050.zip
+
 > unzip JAEA_nogami_integrated_map_040.zip
 
 For example, you can visualize the case study of the area
 around the Niida River (Section 3.1) by
+
 > ./fltrview -c configs/niida-attenuation.conf
 
 ![Area around the Niida River](../images/niida_map.png)
@@ -36,12 +45,14 @@ around the Niida River (Section 3.1) by
 
 The case study of the area in Fukushima City and Date City
 in Fukushima Prefecture can be obtained by
+
 > ./fltrview -c configs/date-attenuation.conf
 
 ![Fukushima City and Date City](../images/date_map.png)
 
 
 You can also analyze the case study of the national forest south of the National Route 288 in Nogame area of Okuma Town by  
+
 > ./fltrview -c configs/nogami-attenuation.conf
 
 ![National Forest in Nogami Area](../images/nogami_map.png)
