@@ -14,6 +14,11 @@ Overall, you can compile the program as follows:
 > make
 > ./mapview
 
+Download data files from:
+JAEA_niida_integrated_map_040.zip from https://www.dropbox.com/scl/fi/1b7w4uspq2owwp0gzqw20/JAEA_niida_integrated_map_040.zip?rlkey=7o7ianm30vpohr2epm9s58d7p&dl=0
+JAEA_date_integrated_map_050.zip from https://www.dropbox.com/scl/fi/5meiuxtimuvpnirz75sww/JAEA_date_integrated_map_050.zip?rlkey=vq4h7u7juxkpexivj0m9gnm75&dl=0
+JAEA_nogami_integrated_map_040.zip from https://www.dropbox.com/scl/fi/726br5bu4wvlkprg17y7l/JAEA_nogami_integrated_map_040.zip?rlkey=892w2s3oz8i84w45czw3ucoag&dl=0
+
 Unpack the data files
 > unzip JAEA_niida_integrated_map_040.zip
 > unzip JAEA_date_integrated_map_050.zip
