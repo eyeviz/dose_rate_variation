@@ -9,12 +9,17 @@ these packages with HomeBrew for MacOS or apt/yum for Linux.
 Overall, you can compile the program as follows:
 
 ** For macOS (Apple silicon) **
-cmake -S . -B build -DCMAKE_BUILD_TYPE=Release -DCMAKE_PREFIX_PATH=/opt/homebrew
-cmake --build build
+
+> cmake -S . -B build -DCMAKE_BUILD_TYPE=Release -DCMAKE_PREFIX_PATH=/opt/homebrew
+
+> cmake --build build
 
 ** For Linux **
-cmake -S . -B build -DCMAKE_BUILD_TYPE=Release
-cmake --build build -j
+
+> cmake -S . -B build -DCMAKE_BUILD_TYPE=Release
+
+> cmake --build build -j
+
 
 Download data files from:
 
