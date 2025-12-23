@@ -23,6 +23,7 @@
 #endif	// __X11__
 
 #ifdef __MAC__
+#include <OpenGL/gl.h>
 #include <GLUT/glut.h>
 // OpenCV
 #include <opencv2/opencv.hpp>
