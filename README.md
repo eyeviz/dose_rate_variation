@@ -1,4 +1,4 @@
-https://github.com/eyeviz/drvo
+https://github.com/eyeviz/dose_rate_variation
 
 This repository contains program packages for the work entitled
 
