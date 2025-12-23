@@ -26,24 +26,24 @@ import matplotlib.pyplot as plt
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(
-        description="CSV ファイルからヒストグラムを作成するスクリプト"
+        description="Script to create histograms from CSV files"
     )
 
-    parser.add_argument("csv_path", help="入力 CSV ファイル")
+    parser.add_argument("csv_path", help="Input CSV file")
 
-    parser.add_argument("--column-name", help="列名で指定")
-    parser.add_argument("--column-index", type=int, help="列番号 (0 始まり)")
+    parser.add_argument("--column-name", help="Specify by colume name")
+    parser.add_argument("--column-index", type=int, help="row number (Start with 0)")
 
-    parser.add_argument("--bins", type=int, default=30, help="ビンの個数")
+    parser.add_argument("--bins", type=int, default=30, help="Number of bins")
     parser.add_argument(
         "--range", nargs=2, type=float, metavar=("MIN", "MAX"),
-        help="値の範囲"
+        help="Range of the target value"
     )
 
     parser.add_argument("--density", action="store_true",
-                        help="確率密度（面積=1）で表示")
+                        help="Probability density (area = 1)")
     parser.add_argument("--percentage", action="store_true",
-                        help="パーセント表示（合計=100）")
+                        help="Percentage (Total = 100)")
 
     parser.add_argument("--xlabel", default=None)
     parser.add_argument("--ylabel", default=None)
@@ -51,44 +51,44 @@ def parse_args() -> argparse.Namespace:
 
     parser.add_argument("--output", default=None)
     parser.add_argument("--dpi", type=int, default=300,
-                        help="出力画像の解像度 (dpi)")
+                        help="Output image resolution (dpi)")
 
     return parser.parse_args()
 
 
 def choose_column(df, column_name, column_index):
     if column_name and column_index is not None:
-        print("column-name と column-index は同時に指定できません", file=sys.stderr)
+        print("cannot specify both column-name and column-index at the same time.", file=sys.stderr)
         sys.exit(1)
 
     if column_name:
         if column_name not in df.columns:
-            print(f"列名 {column_name!r} が見つかりません", file=sys.stderr)
+            print(f"Column name {column_name!r} not found", file=sys.stderr)
             sys.exit(1)
         return df[column_name]
 
     if column_index is not None:
         if not (0 <= column_index < df.shape[1]):
-            print("column-index が範囲外です", file=sys.stderr)
+            print("column-index is the out of range", file=sys.stderr)
             sys.exit(1)
         return df.iloc[:, column_index]
 
-    print("列指定がないため先頭列を使用します", file=sys.stderr)
+    print("The first column is used as no column name is specified", file=sys.stderr)
     return df.iloc[:, 0]
 
 
 def main():
     args = parse_args()
 
-    # 排他チェック
+    # Mutual exclusive check
     if args.density and args.percentage:
-        print("--density と --percentage は同時に指定できません", file=sys.stderr)
+        print("cannot specify both --density and --percentage", file=sys.stderr)
         sys.exit(1)
 
     try:
         df = pd.read_csv(args.csv_path)
     except Exception as e:
-        print(f"CSV 読み込みエラー: {e}", file=sys.stderr)
+        print(f"CSV Errors in loading CSV files: {e}", file=sys.stderr)
         sys.exit(1)
 
     data = choose_column(df, args.column_name, args.column_index)
@@ -96,7 +96,7 @@ def main():
 
     hist_range = tuple(args.range) if args.range else None
 
-    # ---- weights 設定 ----
+    # ---- Setting weights ----
     weights = None
     ylabel = args.ylabel
 
@@ -127,7 +127,7 @@ def main():
 
     if args.output:
         fig.savefig(args.output, dpi=args.dpi)
-        print(f"保存しました: {args.output} (dpi={args.dpi})")
+        print(f"Saved in:  {args.output} (dpi={args.dpi})")
     else:
         plt.show()
 
