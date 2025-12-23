@@ -30,3 +30,14 @@ See mapview/README.md for more details
 ??????/
 
 See ??????/README.md for more details
+
+
+histogram/
+
+This directory contains Python program codes for generating
+histograms of the air dose reduction ratio in specific
+sample areas (Figures 5(b) and 7(c)).
+
+See histogram/README.md for more details
+
+![Histogram of the dose rate reduction ratios in Fukushima City and Date City](images/date_2011-2017_landuse_mapping.png)
