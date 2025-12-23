@@ -42,8 +42,6 @@ around the Niida River (Section 3.1) by
 
 > ./build/mapview -c configs/niida-attenuation.conf
 
-Area around the Niida River:
-
 | 2011-2013 | 2013-2015 |
 |-----------|-----------|
 | ![](../images/niida_2011-2013.png) | ![](../images/niida_2013-2015.png) |
