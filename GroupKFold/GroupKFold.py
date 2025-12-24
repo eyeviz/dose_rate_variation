@@ -1,19 +1,39 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[ ]:
+# In[1]:
 
 
 import numpy as np
 import pandas as pd
 from sklearn.model_selection import GroupKFold
-from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
+from sklearn.metrics import root_mean_squared_error, mean_absolute_error, r2_score
+try:
+    from sklearn.metrics import root_mean_squared_error as rmse_func
+except ImportError:
+    from sklearn.metrics import mean_squared_error
+    def rmse_func(y_true, y_pred):
+        return mean_squared_error(y_true, y_pred) ** 0.5
+
 import lightgbm as lgb
 import folium
+from pathlib import Path
 
-
-file_path = 'date_2011_2017_土地利用_mapping.csv'
+# === User settings ===========
+# ----------------------------------------
+# for sample data in the area in Fukushima City and Date City
+file_path = 'date_2011-2017_landuse_geo.csv'
 target_variable = 'crtR(2011:2017)'
+# ----------------------------------------
+# for one-hot (discrete) sample data in the national forest of the Nogami area
+# file_path = 'nogami_200_2011-2022_onehot_geo.csv'
+# target_variable = 'crtR(2011:2022)'
+# ----------------------------------------
+# for continous sample data in the national forest of the Nogami area
+# file_path = 'nogami_200_2011-2022_continuous_geo.csv'
+# target_variable = 'crtR(2011:2022)'
+# ----------------------------------------
+# ==============================
 
 RANDOM_STATE = 42
 N_SPLITS = 5  #K-Fold
@@ -32,7 +52,7 @@ df['block_x'] = (df[LON_COL] / GRID_SIZE).astype(int)
 df['block_y'] = (df[LAT_COL] / GRID_SIZE).astype(int)
 df['spatial_block'] = df['block_x'].astype(str) + '_' + df['block_y'].astype(str)
 
-print("ユニーク spatial_block 数:", df['spatial_block'].nunique())
+print("Number of unique spatial blocks:", df['spatial_block'].nunique())
 
 
 groups = df['spatial_block'].values
@@ -42,17 +62,17 @@ id_columns = [LON_COL, LAT_COL, 'block_x', 'block_y', 'spatial_block']
 y = df[target_variable]
 X = df.drop(columns=[target_variable] + id_columns)
 
-print("データ形状:", X.shape)
-print("目的変数の概要:")
+print("Data shape:", X.shape)
+print("Overview of the objective variable:")
 print(y.describe())
 
 y_min = y.min()
 y_max = y.max()
 y_range = y_max - y_min
-print(f"\n目的変数の変動域 (max - min): {y_range:.4f}")
+print(f"\nRange of variation of the objective variable (max - min): {y_range:.4f}")
 
 categorical_cols = X.select_dtypes(include=['object', 'category']).columns.tolist()
-print("カテゴリ列:", categorical_cols)
+print("Category column:", categorical_cols)
 
 lgb_params = {
     'objective': 'regression',   
@@ -105,7 +125,7 @@ for fold, (train_idx, valid_idx) in enumerate(gkf.split(X, y, groups), 1):
     valid_pred = model.predict(X_valid, num_iteration=model.best_iteration_)
     oof_pred[valid_idx] = valid_pred
 
-    fold_rmse = mean_squared_error(y_valid, valid_pred, squared=False)
+    fold_rmse = root_mean_squared_error(y_valid, valid_pred)
     fold_mae = mean_absolute_error(y_valid, valid_pred)
     fold_r2  = r2_score(y_valid, valid_pred)
 
@@ -113,7 +133,7 @@ for fold, (train_idx, valid_idx) in enumerate(gkf.split(X, y, groups), 1):
     print(f"Fold {fold} MAE : {fold_mae:.4f}")
     print(f"Fold {fold} R2  : {fold_r2:.4f}")
 
-cv_rmse = mean_squared_error(y, oof_pred, squared=False)
+cv_rmse = root_mean_squared_error(y, oof_pred)
 cv_mae  = mean_absolute_error(y, oof_pred)
 cv_r2   = r2_score(y, oof_pred)
 
@@ -129,8 +149,8 @@ print("\n========== Spatial CV 結果（OOF） ==========")
 print(f"Spatial CV RMSE: {cv_rmse:.4f}")
 print(f"Spatial CV MAE : {cv_mae:.4f}")
 print(f"Spatial CV R2  : {cv_r2:.4f}")
-print(f"相対誤差 MAE  : {rel_mae:.2f} %")
-print(f"相対誤差 RMSE : {rel_rmse:.2f} %")
+print(f"Relative MAE error : {rel_mae:.2f} %")
+print(f"Relative RMSE error : {rel_rmse:.2f} %")
 
 
 
@@ -139,7 +159,7 @@ blocks = df[['block_x', 'block_y', 'spatial_block']].drop_duplicates().reset_ind
 
 blocks['fold'] = blocks['spatial_block'].map(block_to_fold)
 
-print("\nFold 割当済みブロック数:", len(blocks))
+print("\nNumber of allocated fold blocks:", len(blocks))
 
 center_lat = df[LAT_COL].mean()
 center_lon = df[LON_COL].mean()
@@ -198,8 +218,19 @@ legend_html = """
 """
 m.get_root().html.add_child(folium.Element(legend_html))
 
-# Jupyter / Colab なら最後に m を評価すると地図が表示される
-m
-# 必要なら HTML として保存
-# m.save("spatial_cv_folds_map.html")
+# In Jupyter / Colab, evaluating `m` at the end will display the map.
+if "__IPYTHON__" in globals():
+    get_ipython().system('python --version')
+    m
+else:
+    import sys
+    print(sys.version)
+# Save a spatial cv folds map as a HTML file if necessary
+html_file = Path(file_path).with_name(
+    Path(file_path).stem + "_spatial_cv_folds_map.html"
+)
+m.save(html_file)
+print(f"Map saved: {html_file}")
 
+
+# In[ ]:

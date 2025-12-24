@@ -87,7 +87,7 @@ python SHAP.py
 
 5. Output Results
 
-- The SHAP summary plot will be output as an image file.
+- The SHAP summary plot will be saved as an image file.
 
 
 - python(Data1)

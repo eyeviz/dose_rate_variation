@@ -42,15 +42,11 @@ See SHAP/README.md for more details
 
 This directory contains Python program codes for plotting
 sample points on a geographic map by specifying beeswarm
-points in the SHAP summary plot (Figure 6).
+points in the SHAP summary plot (Figure 6 in the manuscript).
 
 See mapping/README.md for more details
 
 ![Plotting ravine sample points on a geographic map from the SHAP summary plot](images/ravine.png)
-
-- ??????/
-
-See ??????/README.md for more details
 
 - histogram/
 
@@ -61,3 +57,15 @@ sample areas (Figures 5(b) and 7(c) in the manuscript).
 See histogram/README.md for more details
 
 ![Histogram of the dose rate reduction ratios in Fukushima City and Date City](images/date_2011-2017_landuse_histogram.png)
+
+- GroupKFold/
+
+This directory offers Python program codes for conducting
+the spatial (GroupKFold) cross-validation of the Light_GBM
+based predictive model (Figure 10 in the manuscript).
+
+See GroupKFold/README.md for more details
+
+![Spatial CV folds map in Fukushima City and Date City](images/date_2011-2017_landuse_geo_spatial_cv_folds_map.png)
+
+
