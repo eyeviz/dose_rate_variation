@@ -29,7 +29,7 @@ pip install pandas shap lightgbm scikit-learn folium
 ## 2. Input data
 
 - Input format: CSV
-- Input file name: `nogami_200_2011-2022_onehot.csv`
+- Input file name: `nogami_200_2011-2022_onehot_geo.csv`
 - The CSV file must include the following columns:
   - `Latitude`
   - `Longitude`
@@ -117,11 +117,11 @@ python mapping.py
 
 - Ravine sample points on the map
 
-![Ravine sample points in the national forest in the Nogami area (nogami_200_2011-2022-onehot.csv)](ravine.html)
+![Ravine sample points in the national forest in the Nogami area (nogami_200_2011-2022-onehot_geo.csv)](ravine.html)
 
 - Pit sample points on the map
 
-![Pit sample points in the national forest in the Nogami area (nogami_200_2011-2022-onehot.csv)](pit.html)
+![Pit sample points in the national forest in the Nogami area (nogami_200_2011-2022-onehot_geo.csv)](pit.html)
 
 ```python
 

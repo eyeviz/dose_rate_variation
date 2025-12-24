@@ -11,7 +11,7 @@ from lightgbm import LGBMRegressor
 from sklearn.model_selection import train_test_split
 
 
-file_path = 'nogami_200_2011-2022_onehot_with_geo.csv'
+file_path = 'nogami_200_2011-2022_onehot_geo.csv'
 target_variable = 'crtR(2011:2022)'
 
 # === User settings ========================
