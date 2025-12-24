@@ -115,13 +115,13 @@ python mapping.py
 - The interpretation of SHAP values depends on the trained model and
   selected feature.
 
-- Ravine sample points on the map
+- Ravine sample points on the map (Preview of the generated HTML file)
 
-[![Ravine sample points in the national forest in the Nogami area](ravine.png)](https://https://github.com/eyeviz/dose_rate_variation/blob/master/mapping/ravine.html)
+[![Ravine sample points in the national forest in the Nogami area](ravine.png)]
 
-- Pit sample points on the map
+- Pit sample points on the map  (Preview of the generated HTML file)
 
-[![Pit sample points in the national forest in the Nogami area](pit.png)](https://https://github.com/eyeviz/dose_rate_variation/blob/master/mapping/ravine.html)
+[![Pit sample points in the national forest in the Nogami area](pit.png)]
 
 ```python
 
