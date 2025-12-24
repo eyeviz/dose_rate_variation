@@ -92,12 +92,15 @@ python SHAP.py
 
 
 - python(Data1)
+
 ![SHAP summary plot (date_2011-2017_landuse)](date_2011-2017_landuse.svg)
 
 - python(Data2)
+
 ![SHAP summary plot (nogami_200_2011-2022_onehot)](nogami_200_2011-2022_onehot.svg)
 
 - python(Data3)
+
 ![SHAP summary plot (nogami_200_2011-2022-continuous)](nogami_200_2011-2022_continuous.svg)
 
 
