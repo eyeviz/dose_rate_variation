@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[ ]:
+# In[1]:
 
 
 import pandas as pd
@@ -11,9 +11,18 @@ from lightgbm import LGBMRegressor
 from sklearn.model_selection import train_test_split
 
 
-file_path = 'filename.csv'
+file_path = 'nogami_200_2011-2022_onehot_with_geo.csv'
 target_variable = 'crtR(2011:2022)'
-selected_feature = 'ravine'#Specify terrain
+
+# === User settings ========================
+# ------------------------------------------
+# Select 'ravine' to plot ravine sample points on the map
+selected_feature = 'ravine'     #Specify terrain feature type
+# ------------------------------------------
+# Select 'pit' to plot pit sample points on the map
+# selected_feature = 'pit'     #Specify terrain feature type
+# ------------------------------------------
+# ==========================================
 
 data = pd.read_csv(file_path)
 latitude = data['Latitude']
@@ -45,7 +54,7 @@ shap_masked = shap_selected[mask]
 
 m = folium.Map(location=[latitude.mean(), longitude.mean()], zoom_start=10)
 
-#等高線追加
+#Add contour lines
 folium.TileLayer(
     tiles='https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png',
     attr='&copy; <a href="https://opentopomap.org">OpenTopoMap</a>',
@@ -54,7 +63,7 @@ folium.TileLayer(
     control=True
 ).add_to(m)
 
-#マッピング
+#mapping
 for lat, lon, shap_val in zip(lat_masked, lon_masked, shap_masked):
     if shap_val <= -0.00:
         color = 'red'
@@ -73,7 +82,17 @@ for lat, lon, shap_val in zip(lat_masked, lon_masked, shap_masked):
 
 folium.LayerControl().add_to(m)
 
-output_path = '保存先を指定'
+# === User settings ========================
+# Temporary set the label of the selected feature as the output file name (in HTML).
+output_path = selected_feature + ".html"
+# ==========================================
+
 m.save(output_path)
-print(f"地図を保存しました: {output_path}")
+print(f"Map saved: {output_path}")
+
+
+# In[ ]:
+
+
+
 
