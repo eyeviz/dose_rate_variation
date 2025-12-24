@@ -117,8 +117,6 @@ python mapping.py
 
 - Ravine sample points on the map
 
-[![demo](images/overview.svg)](https://username.github.io/repo-name/)
-
 [![Ravine sample points in the national forest in the Nogami area](ravine.png)](https://https://github.com/eyeviz/dose_rate_variation/blob/master/mapping/ravine.html)
 
 - Pit sample points on the map
