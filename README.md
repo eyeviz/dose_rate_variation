@@ -32,12 +32,24 @@ See mapview/README.md for more details
 See ??????/README.md for more details
 
 
+SHAP/
+
+This directory contains Python program codes for generating
+SHAP summmary plots of the dose rate reduction ratio in
+specific sample areas (Figures 4(b), 6(a), 6(c), and 8 in
+the manuscript).
+
+See SHAP/README.md for more details
+
+![SHAP summary plot of the dose rate reduction ratio in terms of land use tapes in in Fukushima City and Date City](images/date_2011-2017_landuse_shap.svg)
+
+
 histogram/
 
 This directory contains Python program codes for generating
-histograms of the air dose reduction ratio in specific
-sample areas (Figures 5(b) and 7(c)).
+histograms of the dose rate reduction ratio in specific
+sample areas (Figures 5(b) and 7(c) in the manuscript).
 
 See histogram/README.md for more details
 
-![Histogram of the dose rate reduction ratios in Fukushima City and Date City](images/date_2011-2017_landuse_mapping.png)
+![Histogram of the dose rate reduction ratios in Fukushima City and Date City](images/date_2011-2017_landuse_histogram.png)

@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[ ]:
+# In[5]:
 
 
 import shap
@@ -9,10 +9,23 @@ import matplotlib.pyplot as plt
 import pandas as pd
 from sklearn.model_selection import train_test_split
 from lightgbm import LGBMRegressor
+from pathlib import Path
 
-
-file_path = 'filename.csv'
-target_variable = 'crtR(2011:2022)'
+# === User settings ===========
+# ----------------------------------------
+# for sample data in the area in Fukushima City and Date City
+file_path = 'date_2011-2017_landuse.csv'
+target_variable = 'crtR(2011:2017)'
+# ----------------------------------------
+# for one-hot (discrete) sample data in the national forest of the Nogami area
+# file_path = 'nogami_200_2011-2022_onehot.csv'
+# target_variable = 'crtR(2011:2022)'
+# ----------------------------------------
+# for continous sample data in the national forest of the Nogami area
+# file_path = 'nogami_200_2011-2022_continuous.csv'
+# target_variable = 'crtR(2011:2022)'
+# ----------------------------------------
+#==============================
 
 data = pd.read_csv(file_path)
 
@@ -41,10 +54,23 @@ plt.ylabel('Features', fontsize=12)
 plt.xticks(fontsize=12)
 plt.yticks(fontsize=18)
 plt.tight_layout()
-plt.savefig(
-    "filename.svg",
-    format="svg",
-    bbox_inches="tight"
-)
+svg_file = Path(file_path).with_suffix(".svg")
+plt.savefig(svg_file)
 plt.show()
+
+
+# In[2]:
+
+
+if "__IPYTHON__" in globals():
+    get_ipython().system('python --version')
+else:
+    import sys
+    print(sys.version)
+
+
+# In[ ]:
+
+
+
 
