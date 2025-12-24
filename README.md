@@ -10,7 +10,10 @@ authored by
 Ryu Yoshida, Hiroshi Kurikami, Fumiya Nagao,
 Shigeo Takahashi, and Yukihisa Sanada.
 
-This repository contains two directories as follows:
+Note that this work is currently under review.
+
+
+This repository contains five directories as follows:
 
 - mapview/
 
@@ -67,5 +70,30 @@ based predictive model (Figure 10 in the manuscript).
 See GroupKFold/README.md for more details
 
 ![Spatial CV folds map in Fukushima City and Date City](images/date_2011-2017_landuse_geo_spatial_cv_folds_map.png)
+
+
+Datasets
+
+We utilize several publicly available datasets in this program package. While the necessary data is included in the package to ensure the program is immediately usable, please refer to the data providers as needed.
+
+- Integrated ambient dose rate map
+
+Datasets of integrated radiation air dose rate maps over the 80 km radius of the Fukushima Daiichi Nuclear Power Plant and the entire Fukushima Prefecture during 2011–2022
+https://doi.org/10.60427/0002000022
+
+Sakuma, K., Kurikami, H., Wainwright, H., Tanimori, S., Nagao, F., Ochi, K., Sanada, Y., Saito, K., 2024. Integrated radiation air dose rate maps over the 80 km radius of the Fukushima Daiichi Nuclear Power Plant and the entire Fukushima Prefecture during 2011–2024. J. Environ. Radioact. 280, 107554. https://doi.org/10.1016/j.jenvrad.2024.107554.
+
+- Geographic data (elevation, road networks, river networks, and administrative boundaries (e.g., municipalities))
+
+National Land Numerical Information Download Site:
+https://nlftp.mlit.go.jp/ksj/
+
+- Land use data:
+
+High-Resolution Land Use and Land Cover Map Products by JAXA
+https://earth.jaxa.jp/en/data/2562/index.html
+
+Takahashi, M., Nasahara, K.N., Tadano, T., Watanabe, T., Dotsu, M., Sugimura, T., 2013. JAXA high resolution land-use and land-cover map of Japan. In Proceedings of the 2013 IEEE International Geoscience and Remote Sensing Symposium – IGARSS. 2384–2387. https://doi.org/10.1109/IGARSS.2013.6723299
+
 
 
