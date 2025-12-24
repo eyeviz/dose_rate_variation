@@ -103,10 +103,6 @@ The spatial cv folds map will be saved as an HTML file.
 
 ![Spatial CV folds map (date_2011-2017_landuse_geo)](date_2011-2017_landuse_geo_spatial_cv_folds_map.png)
 
-- python(Data2): Preview of the generated HTML file
-
-![Spatial CV folds map (nogami_200_2011-2022_onehot_geo)](nogami_200_2011-2022_onehot_geo_spatial_cv_folds_map.png)
-
 - python(Data3): Preview of the generated HTML file
 
 ![Spatial CV folds map (nogami_200_2011-2022_continuous_geo)](nogami_200_2011-2022_continuous_geo_spatial_cv_folds_map.png)
