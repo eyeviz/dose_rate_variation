@@ -12,7 +12,7 @@ Shigeo Takahashi, and Yukihisa Sanada.
 
 This repository contains two directories as follows:
 
-mapview/
+- mapview/
 
 This directory contains C++ program codes for visualizing
 the ambient air dose rate and its reduction ratio on the map
@@ -27,12 +27,7 @@ See mapview/README.md for more details
 
 ![System snapshot for analyzing Fukushima City and Date City](images/system_view_for_date.png)
 
-??????/
-
-See ??????/README.md for more details
-
-
-SHAP/
+- SHAP/
 
 This directory contains Python program codes for generating
 SHAP summmary plots of the dose rate reduction ratio in
@@ -43,8 +38,21 @@ See SHAP/README.md for more details
 
 ![SHAP summary plot of the dose rate reduction ratio in terms of land use tapes in in Fukushima City and Date City](images/date_2011-2017_landuse_SHAP.svg)
 
+- mapping/
 
-histogram/
+This directory contains Python program codes for plotting
+sample points on a geographic map by specifying beeswarm
+points in the SHAP summary plot (Figure 6).
+
+See mapping/README.md for more details
+
+![Plotting ravine sample points on a geographic map from the SHAP summary plot](images/ravine.png)
+
+- ??????/
+
+See ??????/README.md for more details
+
+- histogram/
 
 This directory contains Python program codes for generating
 histograms of the dose rate reduction ratio in specific
