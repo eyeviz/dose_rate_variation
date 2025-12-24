@@ -16,7 +16,6 @@ This program takes numerical data in CSV format as input and visualizes the cont
   - scikit-learn
   - pandas
   - matplotlib
-  - pathlib
 
 Installation Example
 
