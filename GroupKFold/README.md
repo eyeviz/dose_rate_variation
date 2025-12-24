@@ -97,19 +97,19 @@ python GroupKFold.py
 
 5. Output Results
 
-- The SHAP summary plot will be saved as an HTML file.
+The spatial cv folds map will be saved as an HTML file.
 
 - python(Data1): Preview of the generated HTML file
 
 ![Spatial CV folds map (date_2011-2017_landuse_geo)](date_2011-2017_landuse_geo_spatial_cv_folds_map.png)
 
-- python(Data2)
+- python(Data2): Preview of the generated HTML file
 
 ![Spatial CV folds map (nogami_200_2011-2022_onehot_geo)](nogami_200_2011-2022_onehot_geo_spatial_cv_folds_map.png)
 
-- python(Data3)
+- python(Data3): Preview of the generated HTML file
 
-![Spatial CV folds map (nogami_200_2011-2022_continuous_geo)](nogami_200_2011-2022_continous_geo_spatial_cv_folds_map.png)
+![Spatial CV folds map (nogami_200_2011-2022_continuous_geo)](nogami_200_2011-2022_continuous_geo_spatial_cv_folds_map.png)
 
 
 ```python
