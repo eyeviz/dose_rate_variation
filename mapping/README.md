@@ -117,11 +117,11 @@ python mapping.py
 
 - Ravine sample points on the map
 
-![Ravine sample points in the national forest in the Nogami area (nogami_200_2011-2022-onehot_geo.csv)](ravine.html)
+![Ravine sample points in the national forest in the Nogami area (ravine.png)](ravine.html)
 
 - Pit sample points on the map
 
-![Pit sample points in the national forest in the Nogami area (nogami_200_2011-2022-onehot_geo.csv)](pit.html)
+![Pit sample points in the national forest in the Nogami area (pit.png)](pit.html)
 
 ```python
 
