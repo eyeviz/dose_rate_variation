@@ -41,7 +41,7 @@ the manuscript).
 
 See SHAP/README.md for more details
 
-![SHAP summary plot of the dose rate reduction ratio in terms of land use tapes in in Fukushima City and Date City](images/date_2011-2017_landuse_shap.svg)
+![SHAP summary plot of the dose rate reduction ratio in terms of land use tapes in in Fukushima City and Date City](images/date_2011-2017_landuse_SHAP.svg)
 
 
 histogram/
