@@ -1,17 +1,19 @@
 https://github.com/eyeviz/dose_rate_variation
 
-This repository contains program packages for the work entitled
+***
 
-Ambient Dose Rate Variation in the Fukushima Region
-Visualized Using Explainable AI Techniques
+This repository contains program packages for the work:
 
-authored by 
+Ryu Yoshida, Hiroshi Kurikami, Fumiya Nagao, Shigeo Takahashi, Yukihisa Sanada,
+Ambient dose rate variation in the Fukushima region visualized using explainable AI techniques,
+Journal of Environmental Radioactivity,
+Volume 293,
+2026,
+107900,
+ISSN 0265-931X,
+https://doi.org/10.1016/j.jenvrad.2026.107900.
 
-Ryu Yoshida, Hiroshi Kurikami, Fumiya Nagao,
-Shigeo Takahashi, and Yukihisa Sanada.
-
-Note that this work is currently under review.
-
+***
 
 This repository contains five directories as follows:
 
